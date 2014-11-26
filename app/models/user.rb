@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :answers
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver
+  end
+
 end

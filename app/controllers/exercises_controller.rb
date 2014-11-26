@@ -3,6 +3,10 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
   end
 
+  def edit
+
+  end
+
   private
   def exercise_params
     params.require(:exercise).permit(:title, :description, :uid)
