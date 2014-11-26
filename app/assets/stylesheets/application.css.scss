@@ -1,3 +1,29 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu|Josefin+Sans|Oswald|Open+Sans);
+@import "navbar";
+
+$btn-primary-color: #0F0F5B;
+$link-hover-decoration: none;
+
+body{
+  font-family: 'Josefin Sans';
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: light;
+  font-size: 40px;
+  color: #0F0F5B;
+}
+
+h2{
+  font-size: 32px;
+  color: #383635;
+}
+
+p{
+  font-size: 16px;
+  color: #383635;
+}
