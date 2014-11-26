@@ -1,0 +1,12 @@
+<p>Track 1</p>
+
+<h1>Craft your core story</h1>
+<p>"Make something people want. Tell a story people love."</p>
+
+<h3>Warm up with some storytelling theory</h3>
+<%= link_to %>
+
+<h3><% @exercises.each do |exercise| %></h3>
+<h2><%= link_to exercise.title, track_exercise_path(@track, exercise) %></h2>
+<% end %>
+
