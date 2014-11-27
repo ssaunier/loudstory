@@ -44,3 +44,5 @@ end
 gem 'aws-sdk'
 gem 'paperclip'
 
+gem 'activeadmin', github: 'activeadmin'
+
