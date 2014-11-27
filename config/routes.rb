@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
   root to: "home#index"
+
+  get 'dashboards/index', path: 'dashboard'
+
+  devise_for :users
 
   resources :tracks do
     resources :exercises

@@ -10,6 +10,10 @@ class TracksController < ApplicationController
     @exercises = @track.exercises
   end
 
+  def new
+
+  end
+
   private
   def track_params
     params.require(:track).permit(:title, :description)
