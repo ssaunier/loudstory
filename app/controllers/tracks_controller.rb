@@ -16,6 +16,6 @@ class TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:title, :description)
+    params.require(:track).permit(:title, :description, :photo)
   end
 end

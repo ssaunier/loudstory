@@ -11,18 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127112143) do
+ActiveRecord::Schema.define(version: 20141127173947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
   create_table "answers", force: true do |t|
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "question_id"
     t.integer  "users_id"
     t.integer  "sessions_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
@@ -31,10 +50,14 @@ ActiveRecord::Schema.define(version: 20141127112143) do
 
   create_table "exercises", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "track_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "exercises", ["track_id"], name: "index_exercises_on_track_id", using: :btree
@@ -48,10 +71,14 @@ ActiveRecord::Schema.define(version: 20141127112143) do
 
   create_table "questions", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "exercise_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "questions", ["exercise_id"], name: "index_questions_on_exercise_id", using: :btree
@@ -72,6 +99,10 @@ ActiveRecord::Schema.define(version: 20141127112143) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -94,6 +125,7 @@ ActiveRecord::Schema.define(version: 20141127112143) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "answers_id"
+    t.boolean  "admin"
   end
 
   add_index "users", ["answers_id"], name: "index_users_on_answers_id", using: :btree
