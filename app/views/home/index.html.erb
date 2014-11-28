@@ -11,7 +11,11 @@
       </div>
       <div class="col-xs-4">
         <% if user_signed_in? %>
-        <%= render "devise/sessions/new" %>
+          <h2><%= t '.header' %></h2>
+          <% @tracks.each do |track| %>
+          <h2><%= link_to track.title, track %></h2>
+          <h3><%= track.description %></h3>
+          <% end %>
         <% else %>
         <%= render "devise/sessions/new" %>
         <%= render "devise/registrations/new" %>

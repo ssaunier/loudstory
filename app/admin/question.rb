@@ -2,18 +2,22 @@ ActiveAdmin.register Question do
 
  index do
    selectable_column
-   column :title do |question|
+   column :position do |question|
+      link_to question.position, admin_question_path(question)
+    end
+    column :title do |question|
       link_to question.title, admin_question_path(question)
     end
    column :description do |question|
     (question.description || "").first(40)
    end
-   column :photo do |question| image_tag question.photo.url, width:"100px", height:"100px" end
-   actions
+    column :photo do |question| image_tag question.photo.url, width:"100px", height:"100px" end
+     actions
  end
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Identity" do
+      f.input :position
       f.input :exercise
       f.input :title
       f.input :description
@@ -26,6 +30,7 @@ ActiveAdmin.register Question do
 
  show do |question|
    attributes_table do
+     row :position
      row :exercise_id
      row :title
      row :description
@@ -36,7 +41,7 @@ ActiveAdmin.register Question do
   end
  end
 
-  permit_params :title, :description, :photo, :exercise_id
+  permit_params :title, :description, :photo, :position, :exercise_id
 
 end
 

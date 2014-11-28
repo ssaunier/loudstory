@@ -1,0 +1,10 @@
+fr:
+  tracks:
+    index:
+      title: "Storytelling tracks"
+      header: "LoudStory allows you to draft each one of the stories you'll want to share with  users, employees, partners, journalists or investors all along your startup's journey."
+    show:
+      ref_for: "track"
+      title_for: "title"
+      header: "Make something people want. Tell a story people love."
+

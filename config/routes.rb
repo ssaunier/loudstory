@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
 
+
   ActiveAdmin.routes(self)
-  root to: "home#index"
-
-  get 'dashboards/index', path: 'dashboard'
-
   devise_for :users
 
-  resources :tracks do
-    resources :exercises
-  end
+  scope '(:locale)', locale: /fr/ do
 
+    root to: "home#index"
+
+    get 'dashboards/index', path: 'dashboard'
+
+    resources :tracks
+
+    resources :exercises do
+      resources :sessions
+    end
+
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

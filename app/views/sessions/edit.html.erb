@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+    <div class="page-header">
+      <h1><%= @exercise.title %></h1>
+      <h4><%= @exercise.description %></h4>
+    </div>
+
+      <%= form_for([@exercise, @session]) do |f| %>
+        <%= f.fields_for :answers do |a| %>
+          <div class="field form-group", id="exercise-form">
+            <%= label_tag a.object.original_question %>
+            <%= a.text_area :content, rows: "3", class: "form-control" %>
+          </div>
+        <% end %>
+        <%= f.submit "Update", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

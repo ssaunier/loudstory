@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+
+  def exercises
+    self.sessions.map{|session| session.exercise}.uniq
+  end
+
   private
 
   def send_welcome_email

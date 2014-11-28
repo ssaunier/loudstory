@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    index:
+      header: "Try our new track"
+  tracks:
+    index:
+      title: "Storytelling tracks"
+      header: "LoudStory allows you to draft each one of the stories you'll want to share with  users, employees, partners, journalists or investors all along your startup's journey."
+    show:
+      title_for: "%{title}"
+      header: "Make something people want. Tell a story people love."
+      warmup: "Warm up with an introduction to Storytelling."
+

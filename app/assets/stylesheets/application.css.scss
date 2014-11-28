@@ -1,19 +1,22 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import url(http://fonts.googleapis.com/css?family=Ubuntu|Josefin+Sans|Oswald|Open+Sans);
-@import "navbar";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Oswald:400,300|Open+Sans:400,300,600);@import "navbar";
 
 $btn-primary-color: #0F0F5B;
 $link-hover-decoration: none;
 
 body{
-  font-family: 'Josefin Sans';
+  font-family: 'Lato' sans-serif;
+  font-weight: 300;
+  margin-top: 100px;
+  margin: 0 auto;
+  font-size: 18px;
 }
 
 h1 {
   font-family: 'Oswald', sans-serif;
-  font-size: light;
+  font-weight: 400;
   font-size: 40px;
   color: #0F0F5B;
 }
@@ -23,8 +26,13 @@ h2{
   color: #383635;
 }
 
+h4{
+  line-height: 26px;
+}
+
 p{
   font-size: 16px;
+  line-height: 22px;
   color: #383635;
 }
 
@@ -40,3 +48,23 @@ p{
   max-height: 100%;
   margin-top: 20px;
 }
+
+.form-control{
+  font-size: 30px;
+  font-weight: 400;
+  border: none;
+  margin-top: 18px;
+}
+
+label{
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 33px;
+  margin-top: 18px;
+  color: #0F0F5B;
+}
+
+
+
+
+

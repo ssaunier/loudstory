@@ -1,0 +1,5 @@
+sessions for exercise <%= @exercise.title %>
+
+<% @sessions.each do |s| %>
+  <%= link_to s.created_at, edit_exercise_session_path(@exercise, s) %>
+<% end %>

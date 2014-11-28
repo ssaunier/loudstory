@@ -2,18 +2,22 @@ ActiveAdmin.register Exercise do
 
   index do
     selectable_column
+    column :position do |track|
+      link_to track.position, admin_track_path(track)
+    end
     column :title do |exercise|
       link_to exercise.title, admin_exercise_path(exercise)
     end
-   column :description do |exercise|
-    (exercise.description || "").first(40)
-   end
-   column :photo do |exercise| image_tag exercise.photo.url, width:"100px", height:"100px" end
-   actions
+    column :description do |exercise|
+      (exercise.description || "").first(40)
+    end
+     column :photo do |exercise| image_tag exercise.photo.url, width:"100px", height:"100px" end
+      actions
   end
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Identity" do
+      f.input :position
       f.input :track
       f.input :title
       f.input :description
@@ -26,6 +30,7 @@ ActiveAdmin.register Exercise do
 
  show do |exercise|
    attributes_table do
+     row :position
      row :track_id
      row :title
      row :description
@@ -36,6 +41,6 @@ ActiveAdmin.register Exercise do
     end
   end
 
-  permit_params :title, :description, :track_id
+  permit_params :title, :description, :position, :photo, :track_id
 
 end

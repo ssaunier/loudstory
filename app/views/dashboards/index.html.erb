@@ -1,17 +1,28 @@
-<h2>My dashboard</h2>
-
 <div class="container">
-  <div class="col-xs-2">
-    <div class="img-fit">
-      <%= image_tag @user.picture %><br>
-      <div class="edit-profile text-center"><%= link_to "edit profile", edit_user_registration_path, class:"btn btn-default" %></div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+    <div class="page-header">
+      <h2>My dashboard</h2>
     </div>
-  </div>
+    <div class="col-xs-2">
+      <div class="img-fit">
+        <%= image_tag @user.picture %><br>
+        <div class="edit-profile text-center"><%= link_to "edit profile", edit_user_registration_path, class:"btn btn-default" %></div>
+      </div>
+    </div>
 
-  <div class="col-xs-7">
-    <h2>
-      <%= @user.first_name %> <%= @user.last_name %>
-    </h2>
-  </div>
-
-</div>
+    <div class="col-xs-7 col-x-offset-3">
+      <h2><%= @current_user.first_name %> <%= @current_user.last_name %></h2>
+      <% if @user.exercises.size > 0 %>
+        <h2>My Exercises</h2>
+        <% current_track = nil %>
+        <% @user.exercises.each do |exercise| %>
+        <% if current_track != exercise.track %>
+          <p>Track : <%= exercise.track.title %></p>
+        <% end %>
+          <p>exercise: <%= exercise.title %></p>
+          <% @user.sessions.where(exercise_id: exercise.id).each do |session| %>
+            <p><%= link_to "session du #{session.updated_at}", edit_exercise_session_path(exercise, session) %></p>
+          <% end %>
+        <% end %>
+      <% end %>

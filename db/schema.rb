@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127173947) do
+ActiveRecord::Schema.define(version: 20141128172224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,17 +36,19 @@ ActiveRecord::Schema.define(version: 20141127173947) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "question_id"
-    t.integer  "users_id"
-    t.integer  "sessions_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "user_id"
+    t.integer  "session_id"
+    t.string   "original_question"
+    t.integer  "exercise_id"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
-  add_index "answers", ["sessions_id"], name: "index_answers_on_sessions_id", using: :btree
-  add_index "answers", ["users_id"], name: "index_answers_on_users_id", using: :btree
+  add_index "answers", ["session_id"], name: "index_answers_on_session_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "exercises", force: true do |t|
     t.string   "title"
@@ -58,9 +60,17 @@ ActiveRecord::Schema.define(version: 20141127173947) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "position"
   end
 
   add_index "exercises", ["track_id"], name: "index_exercises_on_track_id", using: :btree
+
+  create_table "exo_sessions", force: true do |t|
+    t.integer  "exercise_id"
+    t.integer  "session_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -79,19 +89,20 @@ ActiveRecord::Schema.define(version: 20141127173947) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "position"
   end
 
   add_index "questions", ["exercise_id"], name: "index_questions_on_exercise_id", using: :btree
 
   create_table "sessions", force: true do |t|
     t.string   "name"
-    t.integer  "track_id"
+    t.integer  "exercise_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["track_id"], name: "index_sessions_on_track_id", using: :btree
+  add_index "sessions", ["exercise_id"], name: "index_sessions_on_exercise_id", using: :btree
   add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
 
   create_table "tracks", force: true do |t|
@@ -103,6 +114,7 @@ ActiveRecord::Schema.define(version: 20141127173947) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "position"
   end
 
   create_table "users", force: true do |t|

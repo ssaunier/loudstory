@@ -1,8 +1,15 @@
-<h1>Storytelling tracks</h1>
-<h4>LoudStory allows you to draft each one of the stories you'll want to share with  users, employees, partners, journalists or investors all along your startup's journey.</h4>
-
-<p><% @tracks.each do |track| %></p>
-<h2><%= link_to track.title, track %></h2>
-<h4><%= track.description %></h4>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="page-header">
+        <h1><%= t '.title' %></h1>
+        <h4><%= t '.header' %></h4>
+      </div>
+        <p><% @tracks.each do |track| %></p>
+        <h2><%= link_to track.title, track %></h2>
+        <h4><%= track.description %></h4>
+        <% end %>
+    </div>
+  </div>
+</div>
 

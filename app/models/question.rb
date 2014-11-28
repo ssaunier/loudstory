@@ -9,5 +9,5 @@ class Question < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
 
-  validates_presence_of :exercise
+  validates_presence_of :exercise, :position
 end
