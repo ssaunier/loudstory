@@ -1,4 +1,7 @@
 class Session < ActiveRecord::Base
-  belongs_to :track
+  belongs_to :exercise
   belongs_to :user
+
+  has_many :answers
+  accepts_nested_attributes_for :answers
 end

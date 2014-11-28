@@ -7,7 +7,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
-    @exercises = @track.exercises
+    @exercises = @track.exercises.order(:position)
   end
 
   def new

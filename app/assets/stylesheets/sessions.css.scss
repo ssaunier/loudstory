@@ -1,0 +1,16 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$input-border: #0F0F5B;
+
+#exercise-form {
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.form-control {
+    border-color: $bg;
+    font-size: 30px;
+}

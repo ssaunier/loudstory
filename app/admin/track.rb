@@ -2,11 +2,14 @@ ActiveAdmin.register Track do
 
 index do
    selectable_column
+   column :position do |track|
+      link_to track.position, admin_track_path(track)
+    end
    column :title do |track|
       link_to track.title, admin_track_path(track)
     end
    column :description do |track|
-    (track.description || "").first(40)
+    (track.description || "").first(100)
    end
    column :photo do |track| image_tag track.photo.url, width:"100px", height:"100px" end
    actions
@@ -14,6 +17,7 @@ index do
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Identity" do
+      f.input :position
       f.input :title
       f.input :description
     end
@@ -25,6 +29,7 @@ index do
 
  show do |track|
    attributes_table do
+     row :position
      row :title
      row :description
      row :photo do
@@ -35,6 +40,6 @@ index do
   end
 
 
-  permit_params :title, :description # etc...
+  permit_params :title, :description, :position, :photo # etc...
 
 end
