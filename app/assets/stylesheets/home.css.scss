@@ -1,0 +1,69 @@
+.wrapper{
+  margin-top: 100px;
+}
+
+.div {
+  display: block;
+}
+
+#header{
+  margin-top: 50px;
+}
+
+.fit-fixed{
+  display: block;
+}
+
+.padding-top--1{
+  padding-top: 1rem !important;
+}
+
+.padding-top--3{
+  padding-top: 3rem !important;
+}
+
+.text-title{
+  margin-bottom: 20px;
+}
+
+
+.homebanner{
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 15px;
+}
+
+#home_pic{
+  max-height: 100%;
+}
+
+.pic-align-home{
+  padding-left: 140px;
+}
+
+#home_cta{
+  width: 50%;
+  position: relative;
+  padding-top: 300px;
+}
+
+#home_track{
+  background-color: white;
+
+  width: 420px;
+  height: 400px;
+}
+
+#home_track h1{
+  color: #FF0000;
+}
+
+#home_track h2{
+  color: #0F0F5B;
+  text-decoration: none;
+}
+
+#home_track p{
+  line-height: 30px;
+  padding-top: 25px;
+}

@@ -1,28 +1,55 @@
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-    <div class="page-header">
-      <h2>My dashboard</h2>
-    </div>
-    <div class="col-xs-2">
+      <div class="page-header">
+        <h1 class="color-red"><%= t '.title' %></h1>
+      </div>
       <div class="img-fit">
-        <%= image_tag @user.picture %><br>
-        <div class="edit-profile text-center"><%= link_to "edit profile", edit_user_registration_path, class:"btn btn-default" %></div>
+        <%= image_tag current_user.picture(:profile), class:"pic-dashboard" %>
+      </div>
+      <div id="identity">
+        <h3><%= current_user.first_name%>  <%= current_user.last_name%></h3>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-xs-7 col-x-offset-3">
-      <h2><%= @current_user.first_name %> <%= @current_user.last_name %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-7 col-xs-offset-2">
       <% if @user.exercises.size > 0 %>
-        <h2>My Exercises</h2>
+        <h1><%= t '.header1' %></h1>
         <% current_track = nil %>
         <% @user.exercises.each do |exercise| %>
         <% if current_track != exercise.track %>
-          <p>Track : <%= exercise.track.title %></p>
+          <h3><%= exercise.track.title %></h3>
         <% end %>
-          <p>exercise: <%= exercise.title %></p>
+        <%= render "progressbar" %>
+          <h4><%= exercise.title %></h4>
           <% @user.sessions.where(exercise_id: exercise.id).each do |session| %>
-            <p><%= link_to "session du #{session.updated_at}", edit_exercise_session_path(exercise, session) %></p>
+            <p><%= link_to "Last update: #{session.updated_at}", edit_exercise_session_path(exercise, session) %></p>
+            <%= link_to "View", edit_exercise_session_path(exercise, session), class:"btn btn-sm btn-primary" %>
+            <%= link_to "Delete", exercise_session_path(exercise, session), method: :delete,
+              data: { confirm: "Are you sure?" }, class:"btn btn-sm btn-danger" %>
           <% end %>
         <% end %>
       <% end %>
+      <br>
+      <br>
+    </div>
+      <div class="col-xs-6 col-xs-offset-2">
+        <div class="actions">
+          <%= link_to "Back to tracks", tracks_path, class:"btn btn-lg btn-exo" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-7 col-xs-offset-2">
+      <h1><%= t '.header2' %></h1>
+    </div>
+  </div>
+</div>

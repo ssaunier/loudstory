@@ -1,23 +1,24 @@
 <div class="wrapper" id="header">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>Inspire people with storytelling.</h1>
+  <div class="container fit-fixed">
+    <div class="row padding-top--1">
+      <div class="col-sm-12 text-center text-title">
+        <h1><%= t '.title' %></h1>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-4 offset-4">
-        <%= image_tag "homebanner.png", id: "homebanner" %>
+    <div class="row homebanner">
+      <div class="col-sm-4 col-offset-3 text-center pic-align-home">
+        <%= image_tag "homebanner-blur.jpg", id: "home_pic" %>
       </div>
-      <div class="col-xs-4">
+      <div class="col-sm-2 col-offset-3" id="home_cta">
         <% if user_signed_in? %>
-          <h2><%= t '.header' %></h2>
-          <% @tracks.each do |track| %>
-          <h2><%= link_to track.title, track %></h2>
-          <h3><%= track.description %></h3>
-          <% end %>
+          <div class="col-sm-3 col-offset-3" id="home_track">
+            <h1><%= t '.header' %></h1>
+            <% @tracks.each do |track| %>
+            <h2><%= link_to track.title, track %></h2>
+            <p><%= track.description %></p>
+            <% end %>
+          </div>
         <% else %>
-        <%= render "devise/sessions/new" %>
         <%= render "devise/registrations/new" %>
         <% end %>
       </div>

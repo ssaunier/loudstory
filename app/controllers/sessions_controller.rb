@@ -3,10 +3,13 @@ class SessionsController < ApplicationController
 
   def new
     @session = @exercise.sessions.new
-    @exercise.questions.each do |question|
+    @exercises = @exercise.questions.each do |question|
       @session.answers.new(question: question)
     end
+    # @exercises.questions.order(:position)
   end
+
+
 
   def edit
     @session = Session.find(params[:id])
@@ -41,6 +44,13 @@ class SessionsController < ApplicationController
     @sessions = @exercise.sessions
   end
 
+  def destroy
+    @session = Session.find(params[:id])
+    @session.destroy
+    redirect_to dashboards_index_path, notice: 'Exercise was successfully deleted.'
+  end
+
+
   private
 
     def set_exercise
@@ -50,4 +60,5 @@ class SessionsController < ApplicationController
     def session_params
       params.require(:session).permit(answers_attributes: [:original_question, :content, :question_id ])
     end
+
 end

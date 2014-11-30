@@ -20,7 +20,7 @@ ActiveAdmin.register Exercise do
       f.input :position
       f.input :track
       f.input :title
-      f.input :description
+      f.input :description, as: :html_editor
     end
     f.inputs "Photo" do
       f.input :photo

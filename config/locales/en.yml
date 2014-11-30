@@ -20,9 +20,38 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
+  date:
+    abbr_month_names:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    formats:
+      long: "%Y-%m-%d"
+
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M"
+
   home:
     index:
-      header: "Try our new track"
+      title: "Inspire people with storytelling."
+      header: "Try our latest track"
+
+  devise:
+    sessions:
+      new:
+        title: "Ready for another round?"
+
   tracks:
     index:
       title: "Storytelling tracks"
@@ -30,5 +59,11 @@ en:
     show:
       title_for: "%{title}"
       header: "Make something people want. Tell a story people love."
-      warmup: "Warm up with an introduction to Storytelling."
+      warmup: "Start with our warm-up program."
+
+  dashboards:
+    index:
+      title: "My dashboard"
+      header1: "Tracks"
+      header2: "Team"
 

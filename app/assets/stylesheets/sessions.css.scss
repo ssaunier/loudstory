@@ -1,16 +1,108 @@
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 $input-border: #0F0F5B;
+$btn-danger-color: #FF0000;
+$btn-primary-color: #43AAC9;
+
+body{
+  font-family: 'Lato' sans-serif;
+  font-weight: 300;
+  margin-top: 100px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #0F0F5B;
+}
+
+h2{
+  font-size: 32px;
+  color: #383635;
+}
+
+h4{
+  line-height: 26px;
+}
+
+.subheader p{
+  font-size: 18px;
+  line-height: 24px;
+  color: #383635;
+}
+
+.page-body {
+  line-height: 25px;
+}
+
+.page-btn {
+  margin-top: 25px;
+}
+
 
 #exercise-form {
   padding-left: 20px;
   padding-right: 20px;
-
+  font-size: 20px;
 }
 
-.form-control {
-    border-color: $bg;
-    font-size: 30px;
+.form-text-answer{
+  border-color: $bg;
+  font-size: 30px;
+  font-weight: 400;
+  border: none;
+  margin-top: 18px;
+}
+
+ .session-label{
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 33px;
+  margin-top: 18px;
+  color: #0F0F5B;
+}
+
+.btn-exo{
+  background-color: #0F0F5B;
+  color: white;
+  font-weight: 300;
+}
+
+.btn-exo:hover {
+  color: white;
+}
+
+.btn-delete-session{
+  background-color: #0F0F5B;
+  color: white;
+  font-weight: 300;
+  width: 25px;
+  height: 15px;
+  border-radius: 15%;
+}
+
+.btn-view-session{
+  background-color: #43AAC9;
+  color: white;
+  font-weight: 300;
+  width: 25px;
+  height: 15px;
+  border-radius: 10%;
+}
+
+.pic-dashboard{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.btn-primary{
+  background-color: $btn-primary-color;
+}
+
+.btn-danger{
+  background-color: $btn-danger-color;
 }
