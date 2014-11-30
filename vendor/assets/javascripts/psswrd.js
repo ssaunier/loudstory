@@ -1,0 +1,1 @@
+https://github.com/toddmotto/psswrd/blob/master/dist/psswrd.min.js

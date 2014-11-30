@@ -13,12 +13,17 @@
 <body>
 
   <%= render partial: "shared/navbar" %>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+  <div id="wrapper">
 
+    <%= yield %>
 
-  <%= yield %>
+  </div>
+
+  <%= render partial: "shared/footer" %>
 
 </body>
 </html>
