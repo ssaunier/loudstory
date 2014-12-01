@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :sessions
 
   has_attached_file :picture,
-    styles: { profile: "200x200#", list: "60x60#", nav: "30x30#" }, :default_url => "http://placehold.it/200&text=user"
+    styles: { profile: "100x100#", nav: "30x30#" }, :default_url => "http://placehold.it/200&text=user"
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

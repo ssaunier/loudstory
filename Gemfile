@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
-
 ruby '2.1.2'
+
 gem 'rails_12factor', group: :production
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use postgresql as the database for Active Record
@@ -35,6 +36,7 @@ gem 'figaro'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
+gem "font-awesome-rails"
 gem 'bootstrap_form'
 gem 'jquery-middleman'
 
@@ -47,4 +49,6 @@ gem 'aws-sdk'
 gem 'paperclip'
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_editor'
+
 

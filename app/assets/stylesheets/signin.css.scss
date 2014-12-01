@@ -1,0 +1,81 @@
+$btn-bg: #FF0000;
+$btn-color: white;
+$btn-horizontal-padding: 10px;
+
+.btn-signin {
+  line-height: 40px;
+  padding: 0 $btn-horizontal-padding;
+  color: $btn-color;
+  border-radius: 4px;
+  margin-top: $btn-margin-top;
+  border-radius: 2px;
+  font-weight: normal;
+  background-color: $btn-bg;
+  border-top: $btn-top-border-width solid $btn-top-border-color;
+  border-right: $btn-right-border-width solid $btn-right-border-color;
+  border-left: $btn-left-border-width solid $btn-left-border-color;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-signin:hover{
+  color: none;
+}
+
+.signin-label{
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.form-text-signin{
+  border-color: $bg;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.page-header-signin {
+  margin-bottom: 200px;
+}
+
+#header-signup h1{
+  color: #FF0000;
+}
+
+#login_pic{
+  max-height: 100%;
+}
+
+.pic-align{
+  padding-left: 115px;
+}
+
+.forgot-color {
+  color: white;
+}
+
+.forgot-color a:hover{
+  text-decoration: white;
+}
+
+.orlogin-color {
+  color: white;
+  text-align: right;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.orlogin-color a:hover{
+  text-decoration: white;
+}
+
+.color-red{
+  color: #FF0000;
+}
+
+.padding-left{
+  padding-left: 100px;
+}
