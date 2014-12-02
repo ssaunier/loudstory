@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def new
     @user = current_user
+    @previous_sessions = @exercise.sessions.where(user: current_user)
     @session = @exercise.sessions.new
     @exercises = @exercise.questions.each do |question|
       @session.answers.new(question: question)
